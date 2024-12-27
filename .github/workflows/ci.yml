@@ -4,10 +4,10 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - main
+      - main  # main 브랜치에 푸시할 때 실행
   pull_request:
     branches:
-      - main
+      - main  # main 브랜치로의 PR에서 실행
 
 jobs:
   test-chat-service:
@@ -30,8 +30,6 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run tests
-        env:
-          PYTHONPATH: "./"  # PYTHONPATH 설정
         run: |
           cd ChatService
           pytest tests --maxfail=1 --disable-warnings
@@ -56,8 +54,6 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run tests
-        env:
-          PYTHONPATH: "./"  # PYTHONPATH 설정
         run: |
           cd UserService
           pytest tests --maxfail=1 --disable-warnings
