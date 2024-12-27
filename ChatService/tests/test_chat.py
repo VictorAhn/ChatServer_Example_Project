@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 from mock import patch
-from chat.route import router  # 라우터 임포트
+from ChatService.chat.routes import router  # 라우터 임포트
 # FastAPI 앱을 테스트할 때 사용되는 기본 앱 객체
 from fastapi import FastAPI
 

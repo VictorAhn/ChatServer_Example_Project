@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
-from chat.route import router as chat_router
+from ChatService.chat.routes import router as chat_router
 
 app = FastAPI(title="Chat Service API", description="MSA 구성 예제 구성", version="1.0.0")
 
