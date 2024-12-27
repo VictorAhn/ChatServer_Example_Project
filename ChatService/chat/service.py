@@ -25,4 +25,3 @@ def get_rooms(user_id: str) -> List[RoomResponse]:
         return rooms2
     else:
         return [] 
-    
