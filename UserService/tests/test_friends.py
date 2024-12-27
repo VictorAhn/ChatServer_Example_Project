@@ -13,3 +13,20 @@ def create_app() -> FastAPI:
 
 # TestClient를 사용하여 테스트
 client = TestClient(create_app())
+
+def test_login_user():
+    user_id = 1
+
+    # patch를 사용하여 login_user 함수가 예측된 결과를 반환하도록 처리
+    with patch('friends.service.find_friend', return_value={"user_id": user_id, "friends": ["John", "Jane"]}):
+        # 로그인 API 호출
+        response = client.get(f"/friends/find?user_id={user_id}")
+
+        # 응답 상태 코드 확인
+        assert response.status_code == 200
+
+        # 응답 JSON 데이터 확인
+        response_data = response.json()
+        assert response_data["user_id"] == user_id  # user_id가 일치하는지 확인
+        assert "friends" in response_data  # friends 키가 존재하는지 확인
+        assert response_data["friends"] == ["John", "Jane"]  # 예상된 친구 목록과 일치하는지 확인
