@@ -18,5 +18,6 @@ spec:
       containers:
       - name: serv-chat
         image: rockymarciano/example:serv_chat
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
