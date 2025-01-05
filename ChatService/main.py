@@ -3,7 +3,7 @@ from fastapi.openapi.utils import get_openapi
 from fastapi.responses import RedirectResponse
 from chat.routes import router as chat_router
 
-app = FastAPI(root_path="/chat_service", docs_url="/docs", openapi_url="/openapi.json")
+app = FastAPI(docs_url="/docs", openapi_url="/chat_service/openapi.json")
 
 def custom_openapi():
     if app.openapi_schema:

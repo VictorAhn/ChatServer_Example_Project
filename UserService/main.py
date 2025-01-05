@@ -1,10 +1,10 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, APIRouter
 from fastapi.openapi.utils import get_openapi
 from fastapi.responses import RedirectResponse
 from auth.routes import router as auth_router
 from friends.routes import router as friends_router
 
-app = FastAPI(root_path="/user_service", docs_url="/docs", openapi_url="/openapi.json")
+app = FastAPI(docs_url="/docs", openapi_url="/user_service/openapi.json")
 
 def custom_openapi():
     if app.openapi_schema:
