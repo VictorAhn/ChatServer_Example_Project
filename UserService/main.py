@@ -4,7 +4,7 @@ from fastapi.responses import RedirectResponse
 from auth.routes import router as auth_router
 from friends.routes import router as friends_router
 
-app = FastAPI(docs_url="/docs", openapi_url="/user_service/openapi.json")
+app = FastAPI(root_path="/user_service", docs_url="/docs", openapi_url="/openapi.json")
 
 def custom_openapi():
     if app.openapi_schema:
@@ -15,8 +15,12 @@ def custom_openapi():
         description="MSA 구성 예제 구성",
         routes=app.routes
     )
+    
+    openapi_schema["servers"] = [
+        {"url": "http://127.0.0.1:8000/user_service"}
+    ]
     # servers 필드 제거
-    openapi_schema.pop("servers", None)
+    #openapi_schema.pop("servers", None)
     app.openapi_schema = openapi_schema
     return app.openapi_schema
 
