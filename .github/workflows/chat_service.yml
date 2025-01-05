@@ -58,7 +58,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-
 
-      - name: Build Docker image for User Service
+      - name: Build Docker image for Chat Service
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/example:serv_chat ./ChatService
           
