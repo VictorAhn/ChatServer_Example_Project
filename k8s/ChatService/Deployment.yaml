@@ -4,6 +4,7 @@ metadata:
   name: serv-chat
   labels:
     app: serv-chat
+    istio-injection: enabled 
 spec:
   replicas: 2
   selector:

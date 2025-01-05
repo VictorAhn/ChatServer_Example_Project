@@ -4,6 +4,7 @@ metadata:
   name: serv-user
   labels:
     app: serv-user
+    istio-injection: enabled 
 spec:
   replicas: 2
   selector:
