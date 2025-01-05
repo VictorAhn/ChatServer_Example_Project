@@ -18,7 +18,7 @@ def custom_openapi():
         {"url": "/chat_service"}  # Path만 추가
     ]
     # servers 필드 제거
-    openapi_schema.pop("servers", None)
+    #openapi_schema.pop("servers", None)
     app.openapi_schema = openapi_schema
     return app.openapi_schema
 
