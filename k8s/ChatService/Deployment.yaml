@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: serv-user
+  name: serv-chat
   labels:
-    app: serv-user
+    app: serv-chat
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: serv-user
+      app: serv-chat
   template:
     metadata:
       labels:
-        app: serv-user
+        app: serv-chat
     spec:
       containers:
-      - name: serv-user
-        image: rockymarciano/example:serv_user
+      - name: serv-chat
+        image: rockymarciano/example:serv_chat
         ports:
         - containerPort: 8000
