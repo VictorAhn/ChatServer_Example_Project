@@ -15,9 +15,8 @@ def custom_openapi():
         description="MSA 구성 예제 구성",
         routes=app.routes
     )
-    
     openapi_schema["servers"] = [
-        {"url": "http://127.0.0.1:8000/user_service"}
+        {"url": "/user_service"}  # Path만 추가
     ]
     # servers 필드 제거
     #openapi_schema.pop("servers", None)
