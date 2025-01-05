@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: serv-user
+  labels:
+    app: serv-user
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: serv-user
+  template:
+    metadata:
+      labels:
+        app: serv-user
+    spec:
+      containers:
+      - name: serv-user
+        image: rockymarciano/example:serv_user
+        ports:
+        - containerPort: 8000
